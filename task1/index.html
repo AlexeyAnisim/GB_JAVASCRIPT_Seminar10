@@ -1,0 +1,75 @@
+<!-- Поиск в интернете (бесплатные api примеры)
+Найти любые данные, на произвольную тему
+Создать файл data.js
+Создать переменную которая будет хранить данные из публичных api
+Создать файл index.html
+Подключить data.js
+Сформировать контент из данных (картинка заголовок и параграф)
+Добавить данный контент в вёрстку
+* Добавить стили при необходимости (по желанию) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+* {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+.content {
+    max-width: 1140px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+</style>
+
+<body>
+    <div class="content"></div>
+    
+    <img src="" alt="">
+
+    <script src="script.js"></script>
+    <script src="data.js"></script>
+
+    <script>
+        const data = JSON.parse(dataInfo);
+
+
+        data.forEach(element => {
+            const spaceEl = document.createElement('div');
+            const contentEl = document.querySelector('.content');
+            const imgEl = document.createElement('img');
+            const headEl = document.createElement('h3');
+            const descrEl = document.createElement('p');
+
+
+            // spaceEl.classList.add('space');
+            headEl.textContent = element.title;
+            descrEl.textContent = element.explanation;
+            imgEl.src = element.url;
+            imgEl.alt = element.title;
+
+            contentEl.appendChild(headEl);
+            contentEl.appendChild(imgEl);
+            contentEl.appendChild(descrEl);
+
+        });
+
+    </script>
+
+</body>
+
+</html>
